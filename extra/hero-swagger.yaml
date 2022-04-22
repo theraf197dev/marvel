@@ -1,0 +1,202 @@
+swagger: "2.0"
+info:
+  description: "Swagger for hero services that attack Marvel API."
+  version: "1.0.0"
+  title: "Swagger Hero"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "hero.swagger.io"
+basePath: "/v2"
+tags:
+- name: "hero"
+  description: "Everything about marvel heroes"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+paths:
+  /heroe/getHeroes:
+    get:
+      tags:
+      - "hero"
+      summary: "Load all heroes"
+      description: "Load all heroes from Marvel API ordered and paginated"
+      produces:
+      - "application/json"
+      - "application/xml"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "page"
+        in: "query"
+        description: "The page to be displayed"
+        required: true
+        type: "integer"
+      - name: "limit"
+        in: "query"
+        description: "Results limit per page"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Hero"
+        "400":
+          description: "Invalid status value"
+  /heroe/getHeroDetail:
+    get:
+      tags:
+      - "hero"
+      summary: "Load all about one hero"
+      description: "Go deeply inside an specific hero data"
+      produces:
+      - "application/json"
+      - "application/xml"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "characterId"
+        in: "query"
+        description: "hero's id"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Hero"
+        "400":
+          description: "Invalid status value"
+ 
+definitions:
+  Hero:
+    type: "object"
+    properties:
+      comics:
+       $ref: "#/definitions/Comic"
+      description:
+        type: "string"
+        example: ""
+      events:
+        $ref: "#/definitions/Event"
+      id:
+        type: "integer"
+      modified:
+        type: "string"
+        example: "2014-04-29T14:18:17-0400"
+      name:
+        type: "string"
+        example: "3-D Man"
+      resourceURI:
+        type: "string"
+        example: "http://gateway.marvel.com/v1/public/characters/1011334"
+      series:
+        $ref: "#/definitions/Serie"
+      stories:
+        $ref: "#/definitions/Story"
+      thumbnail:
+        type: "array"
+        xml:
+          name: "name"
+        items:
+          type: "string"
+    xml:
+      name: "User"
+  Comic:
+    type: "object"
+    properties:
+      available:
+        type: "integer"
+        example: 12
+      collectionUrl:
+        type: "string"
+        example: "http://gateway.marvel.com/v1/public/characters/1011334/comics"
+      items:
+        type: "array"
+        xml:
+          name: "name"
+          wrapped: true
+        items:
+          type: "string"
+      returned:
+        type: "string"
+        example: 12
+    xml:
+      name: "Comic"
+  Event:
+    type: "object"
+    properties:
+      available:
+        type: "integer"
+        example: 12
+      collectionUrl:
+        type: "string"
+        example: "http://gateway.marvel.com/v1/public/characters/1011334/comics"
+      items:
+        type: "array"
+        xml:
+          name: "name"
+          wrapped: true
+        items:
+          type: "string"
+      returned:
+        type: "string"
+        example: 12
+    xml:
+      name: "Event"
+  Serie:
+    type: "object"
+    properties:
+      available:
+        type: "integer"
+        example: 12
+      collectionUrl:
+        type: "string"
+        example: "http://gateway.marvel.com/v1/public/characters/1011334/comics"
+      items:
+        type: "array"
+        xml:
+          name: "name"
+          wrapped: true
+        items:
+          type: "string"
+      returned:
+        type: "string"
+        example: 12
+    xml:
+      name: "Series"
+  Story:
+    type: "object"
+    properties:
+      available:
+        type: "integer"
+        example: 12
+      collectionUrl:
+        type: "string"
+        example: "http://gateway.marvel.com/v1/public/characters/1011334/comics"
+      items:
+        type: "array"
+        xml:
+          name: "name"
+          wrapped: true
+        items:
+          type: "string"
+      returned:
+        type: "string"
+        example: 12
+    xml:
+      name: "Story"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
