@@ -13,7 +13,7 @@ For it to work, you need to run the following commands in order:
 ### `npm start`
 
 * Create Database :
-* 
+
 ### `cd ../back`
 ### `mysql -u [username] -p < bbdd.sql`
 
