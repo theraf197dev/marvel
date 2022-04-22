@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/359.1706ddf4.chunk.css","mappings":"AAAA,IACI,qBACJ,CAEA,4BACI,WACJ","sources":["components/Hero/Hero.module.css"],"sourcesContent":["div{\r\n    border: none!important;\r\n}\r\n\r\n#heroContainer{\r\n    margin: 10px;\r\n}\r\n\r\n"],"names":[],"sourceRoot":""}

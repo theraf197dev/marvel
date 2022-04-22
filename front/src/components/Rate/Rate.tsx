@@ -42,7 +42,7 @@ const Rate: FC<RateProps> = ({heroId, interactable}) => {
 
             average /= data.length;
 
-            setLRate(average);
+            setLRate(Number.parseFloat(average.toFixed(2)));
           }
       });
     };
