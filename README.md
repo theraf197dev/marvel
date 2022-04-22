@@ -22,11 +22,10 @@ For it to work, you need to run the following commands in order:
 And the password you have set
 Then you have to create a file called env with this format:
 
-
-### `HOST = "localhost"
+HOST = "localhost"
 USER = [username]
 PASSWORD = [password]
-DB = "dbmarvelcomics"`
+DB = "dbmarvelcomics"
 
 
 ## Install and Start Database:
