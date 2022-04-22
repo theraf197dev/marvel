@@ -19,7 +19,7 @@ For it to work, you need to run the following commands in order:
 ### `mysql -u [username] -p < bbdd.sql`
 
 And the password you have set
-Then you have to create a file called env with this format:
+Then you have to create a file called '.env' with this format:
 
 HOST = "localhost"
 
