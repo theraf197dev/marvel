@@ -6,13 +6,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 For it to work, you need to run the following commands in order:
 
-* Install and Start API:
+## Install and Start API:
 
 ### `cd marvel-connector`
 ### `npm install`
 ### `npm start`
 
-* Create Database :
+## Create Database :
 
 ### `cd ../back`
 ### `mysql -u [username] -p < bbdd.sql`
@@ -25,11 +25,11 @@ USER = [username]
 PASSWORD = [password]
 DB = "dbmarvelcomics"`
 
-* Install and Start Database:
+## Install and Start Database:
 ### `npm install`
 ### `npm start`
 
-* Install and Start Front:
+## Install and Start Front:
 ### `cd ../front`
 ### `npm install`
 ### `npm start`
