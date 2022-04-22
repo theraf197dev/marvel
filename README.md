@@ -23,8 +23,11 @@ And the password you have set
 Then you have to create a file called env with this format:
 
 HOST = "localhost"
+
 USER = [username]
+
 PASSWORD = [password]
+
 DB = "dbmarvelcomics"
 
 
