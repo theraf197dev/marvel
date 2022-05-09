@@ -1,6 +1,8 @@
+import { env } from "../env";
+
 module.exports = {
   HOST: "localhost",
-  USER: "root",
-  PASSWORD: "1234",
+  USER: env.user,
+  PASSWORD: env.password,
   DB: "dbmarvelcomics"
 };

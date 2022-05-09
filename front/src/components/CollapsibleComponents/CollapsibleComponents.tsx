@@ -37,7 +37,7 @@ const CollapsibleComponents: FC<CollapsibleComponentsProps> = ({comics, comicUrl
             <ul className="list-group" data-testid="comics">
             {(comics.length > 0) ? comics.map((comic) => <li key={comic.name} className="list-group-item black-background li-custom">{comic.name}</li>)                
              : 'Has not appeared in comics'}
-             {(comics.length > 0 && comicUrl !== '') ? <a href={comicUrl} className="btn custom-button" type="button">Go to Comics</a> : ''}    
+             {(comics.length > 0 && comicUrl !== '') ? <a href={comicUrl} className="btn custom-button" target="_blank">Go to Comics</a> : ''}
             </ul>
           </div>
         </div>
