@@ -10,30 +10,36 @@ For it to work, you need to run the following commands in order:
 
 ### `cd marvel-connector`
 ### `npm install`
+
+You need to create a file called '.env' with your PrivateKey from marvelAPI:
+
+SECRET_KEY = [private_key]
+
+
+And then start it:
+
 ### `npm start`
 
 
-## Create Database :
-
+## Install and Start Database:
 ### `cd ../back`
+### `npm install`
+### `npm install mysql`
+
+## Create Database :
 ### `mysql -u [username] -p < bbdd.sql`
 
 And the password you have set
 Then you have to create a file called '.env' with this format:
 
-HOST = "localhost"
-
 USER = [username]
 
 PASSWORD = [password]
 
-DB = "dbmarvelcomics"
 
+And then start it:
 
-## Install and Start Database:
-### `npm install`
 ### `npm start`
-
 
 ## Install and Start Front:
 ### `cd ../front`
