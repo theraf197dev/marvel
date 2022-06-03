@@ -11,7 +11,9 @@ const LoginScreen = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (event: any) => {
+    event.preventDefault();
+    
     if(loginInput === '')
       return;
 
@@ -19,7 +21,6 @@ const LoginScreen = () => {
     
     await axios.get(url, {params : {username: loginInput}})
       .then(async res =>{
-        console.log(res.data);
         if(res.data.length <= 0){
           await axios.post(url, {username: loginInput})
             .then(res =>{
@@ -42,14 +43,14 @@ const LoginScreen = () => {
   };
 
   return (
-    <div className="container mt-5 text-center">
+    <form className="container mt-5 text-center" onSubmit={handleLogin}>
       <img className="dismiss-img" src="/assets/marvel_login.gif" alt="animacion" />
       <h1 className="my-3">Login Screen</h1>
       <input onChange={event => setLoginInput(event.target.value)} type="text" className="form-control black-background" maxLength={10} placeholder="Local hero username" aria-label="Local hero username" aria-describedby="button-addon"></input>
-      <button onClick={handleLogin} className="btn custom-button spacing">
+      <button type="submit" className="btn custom-button spacing">
         Login
       </button>
-    </div>
+    </form>
   );
 };
 

@@ -1,10 +1,9 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import CollapsibleComponents from '../components/CollapsibleComponents/CollapsibleComponents';
 import CommentContainer from '../components/CommentContainer/CommentContainer';
-import CreateComment from '../components/CreateComment/CreateComment';
-import { API_URL, BACK_URL } from '../constants';
+import { API_URL } from '../constants';
 import { MComic } from '../models/MComic';
 import { MEvent } from '../models/MEvent';
 import { MSerie } from '../models/MSerie';
@@ -55,7 +54,7 @@ const HeroDetail = () => {
     };
 
     peticion();
-  }, []);
+  }, [location.state]);
   
   return(
     <>

@@ -21,7 +21,7 @@ const CommentList: FC<CommentListProps> = ({heroId, change}) => {
           setComments(res.data.reverse());
       })
       .catch(e => console.log(e));
-  }, [change]);
+  }, [change, heroId]);
   
   return(
     <div className='spacing'>

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { FC, useState } from 'react';
 import { BACK_URL } from '../../constants';
-import CommentList from '../CommentList/CommentList';
 
 interface CreateCommentProps {
   heroId: number,

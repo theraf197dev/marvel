@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { FC, useEffect, useState } from 'react';
-import { BACK_URL } from '../../constants';
+import { BACK_URL, NO_USERS_RATE, NO_YOUR_RATE, USERS_RATE, YOUR_RATE } from '../../constants';
 
 interface RateProps {
   heroId: number,
@@ -8,11 +8,6 @@ interface RateProps {
   onRateChange?: Function,
   change?: boolean
 }
-
-const YOUR_RATE = 'Your rate';
-const USERS_RATE = 'Average rate';
-const NO_YOUR_RATE = 'Rate your hero';
-const NO_USERS_RATE = 'Anyone voted yet...';
 
 const Rate: FC<RateProps> = ({heroId, interactable, onRateChange, change}) => {
   const [lRate, setLRate] = useState(0);
@@ -57,7 +52,7 @@ const Rate: FC<RateProps> = ({heroId, interactable, onRateChange, change}) => {
     else{
       averagePetition();
     }
-  }, [change]);
+  }, [change, heroId, interactable]);
   
   const handleRate = (event: React.MouseEvent<HTMLButtonElement>) =>{
     if(!interactable)

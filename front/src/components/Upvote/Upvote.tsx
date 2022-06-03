@@ -21,7 +21,7 @@ const Upvote: FC<UpvoteProps> = ({heroId}) => {
     };
     
     peticion();
-  }, []);
+  }, [heroId]);
 
   const handleUpvote = (event: React.MouseEvent<HTMLButtonElement>) =>{
     const icon = event.currentTarget;
@@ -36,16 +36,12 @@ const Upvote: FC<UpvoteProps> = ({heroId}) => {
 
     if(!lUpvote){
       axios.post(back_url,{heroId: heroId, userId: Number.parseInt(localStorage.getItem("userId") as string)})
-        .then(res => {
-          console.log(res.data);
-        })
+        .then(res => {})
         .catch(e => console.log(e));
     }
     else{
       axios.delete(back_url,{params})
-        .then(res => {
-          console.log(res.data);
-        })
+        .then(res => {})
         .catch(e => console.log(e));
     }
   };
