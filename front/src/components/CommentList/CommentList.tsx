@@ -19,7 +19,8 @@ const CommentList: FC<CommentListProps> = ({heroId, change}) => {
       .then(res => {
         if(res.data.length > 0)
           setComments(res.data.reverse());
-    });
+      })
+      .catch(e => console.log(e));
   }, [change]);
   
   return(

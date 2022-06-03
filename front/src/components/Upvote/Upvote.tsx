@@ -16,7 +16,8 @@ const Upvote: FC<UpvoteProps> = ({heroId}) => {
       axios.get(url, {params : {heroId: heroId, userId: Number.parseInt(localStorage.getItem("userId") as string)}})
         .then(res => {
           setLUpvote(res.data.length > 0);
-      });
+        })
+        .catch(e => console.log(e));
     };
     
     peticion();
@@ -37,13 +38,15 @@ const Upvote: FC<UpvoteProps> = ({heroId}) => {
       axios.post(back_url,{heroId: heroId, userId: Number.parseInt(localStorage.getItem("userId") as string)})
         .then(res => {
           console.log(res.data);
-      });
+        })
+        .catch(e => console.log(e));
     }
     else{
       axios.delete(back_url,{params})
         .then(res => {
           console.log(res.data);
-      });
+        })
+        .catch(e => console.log(e));
     }
   };
 

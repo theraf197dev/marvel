@@ -25,7 +25,8 @@ const Rate: FC<RateProps> = ({heroId, interactable, onRateChange, change}) => {
         .then(res => {
           if(res.data.length > 0)
             setLRate(res.data[0].rate);
-      });
+        })
+        .catch(e => console.log(e));
     };
 
     const averagePetition = async(endpoint = "") => {
@@ -46,7 +47,8 @@ const Rate: FC<RateProps> = ({heroId, interactable, onRateChange, change}) => {
 
             setLRate(Number.parseFloat(average.toFixed(2)));
           }
-      });
+        })
+        .catch(e => console.log(e));
     };
     
     if(interactable){
@@ -93,16 +95,19 @@ const Rate: FC<RateProps> = ({heroId, interactable, onRateChange, change}) => {
             .then(res =>{
               if(onRateChange !== undefined)
                 onRateChange();
-            });
+            })
+            .catch(e => console.log(e));
         }
         else{
           axios.post(back_url,{heroId: heroId, userId: Number.parseInt(localStorage.getItem("userId") as string), rate: _rate})
             .then(res =>{
               if(onRateChange !== undefined)
                 onRateChange();
-            });
+            })
+            .catch(e => console.log(e));
         }
-      });
+      })
+      .catch(e => console.log(e));
   };
 
   return (

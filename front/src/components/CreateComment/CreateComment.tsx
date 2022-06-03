@@ -28,7 +28,8 @@ const CreateComment: FC<CreateCommentProps> = ({heroId, handleCreateComment}) =>
 
         if(handleCreateComment !== undefined)
           handleCreateComment();
-    });
+      })
+      .catch(e => console.log(e));
   };
 
   return (

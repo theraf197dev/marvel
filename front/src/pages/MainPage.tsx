@@ -33,7 +33,8 @@ const MainPage = () => {
           }
           
           setLoading(false);
-      });
+        })
+        .catch(e => console.log(e));
     };
     
     peticion();

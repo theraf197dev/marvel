@@ -37,7 +37,8 @@ const LoginScreen = () => {
           localStorage.setItem("userId", res.data[0].userId);
           navigate("/");
         }
-      });
+      })
+      .catch(e => console.log(e));
   };
 
   return (

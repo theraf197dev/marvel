@@ -50,7 +50,8 @@ const HeroDetail = () => {
           setStories(result.stories.items);
   
           setLoading(false);
-      });
+        })
+        .catch(e => console.log(e));
     };
 
     peticion();

@@ -17,6 +17,7 @@ describe('<CreateComment />', () => {
     axios.post(back_url,{params})
       .then(res => {
         expect(res.data === true);
-    });
+      })
+      .catch(e => console.log(e));
   });
 });
