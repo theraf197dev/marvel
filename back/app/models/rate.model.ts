@@ -34,6 +34,8 @@ Rate.updateById = (modRate, result) => {
         result({ kind: "not_found" }, null);
         return;
       }
+
+      result(null, { id: res});
     }
   );
 };

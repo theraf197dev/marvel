@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import Rate from '../Rate/Rate';
 import Upvote from '../Upvote/Upvote';
 
@@ -10,14 +10,20 @@ interface HeroDetailCardProps {
 }
 
 const HeroDetailCard: FC<HeroDetailCardProps> = ({heroId, heroName, description, thumbnail}) => {
+  const [change, setChange] = useState(false);
+
+  const onRateChange = () => {
+    setChange(!change);
+  };
+
   return (
     <div className="card black-background" style={{width: "27rem"}}>
-      <Rate heroId={heroId} interactable={false}/>
+      <Rate heroId={heroId} interactable={false} change={change}/>
       <img src={thumbnail} className="card-img-top detail-img" alt={heroName}/>
       <div className="card-body">
         <div className='row align-items-start'>
           <Upvote heroId={heroId} />
-            <Rate heroId={heroId} interactable={true}/>
+            <Rate heroId={heroId} interactable={true} onRateChange={onRateChange} />
         </div>
         <hr/>
 

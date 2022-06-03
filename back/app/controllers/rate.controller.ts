@@ -39,7 +39,6 @@ exports.update = (req, res) => {
 
   Rate.updateById(
     updateRate,
-    new Rate(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {

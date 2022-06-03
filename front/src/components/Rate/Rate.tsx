@@ -4,7 +4,9 @@ import { BACK_URL } from '../../constants';
 
 interface RateProps {
   heroId: number,
-  interactable: boolean
+  interactable: boolean,
+  onRateChange?: Function,
+  change?: boolean
 }
 
 const YOUR_RATE = 'Your rate';
@@ -12,7 +14,7 @@ const USERS_RATE = 'Average rate';
 const NO_YOUR_RATE = 'Rate your hero';
 const NO_USERS_RATE = 'Anyone voted yet...';
 
-const Rate: FC<RateProps> = ({heroId, interactable}) => {
+const Rate: FC<RateProps> = ({heroId, interactable, onRateChange, change}) => {
   const [lRate, setLRate] = useState(0);
   
   useEffect(() => {
@@ -53,7 +55,7 @@ const Rate: FC<RateProps> = ({heroId, interactable}) => {
     else{
       averagePetition();
     }
-  }, []);
+  }, [change]);
   
   const handleRate = (event: React.MouseEvent<HTMLButtonElement>) =>{
     if(!interactable)
@@ -89,13 +91,15 @@ const Rate: FC<RateProps> = ({heroId, interactable}) => {
         if(res.data.length > 0){
           axios.put(back_url,{heroId: heroId, userId: Number.parseInt(localStorage.getItem("userId") as string), rate: _rate})
             .then(res =>{
-              console.log(res.data);
+              if(onRateChange !== undefined)
+                onRateChange();
             });
         }
         else{
           axios.post(back_url,{heroId: heroId, userId: Number.parseInt(localStorage.getItem("userId") as string), rate: _rate})
             .then(res =>{
-              console.log(res.data);
+              if(onRateChange !== undefined)
+                onRateChange();
             });
         }
       });
