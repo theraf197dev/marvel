@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import CollapsibleComponents from '../components/CollapsibleComponents/CollapsibleComponents';
+import CommentContainer from '../components/CommentContainer/CommentContainer';
 import CreateComment from '../components/CreateComment/CreateComment';
 import { API_URL, BACK_URL } from '../constants';
 import { MComic } from '../models/MComic';
@@ -68,7 +69,7 @@ const HeroDetail = () => {
             <CollapsibleComponents comics={comics} events={events} series={series} stories={stories} heroName={heroName} description={description} thumbnail={thumbnail} heroId={location.state} comicUrl={comicUrl} />
           </div>
           <br/><br/>
-          <CreateComment heroId={location.state} />
+          <CommentContainer heroId={location.state} />
         </div>
       }
     </>
