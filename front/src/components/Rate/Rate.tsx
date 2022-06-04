@@ -63,19 +63,19 @@ const Rate: FC<RateProps> = ({heroId, interactable, onRateChange, change}) => {
 
     switch (star.id) {
       case 's1':
-        _rate = 2;
+        _rate = 1;
       break;
       case 's2':
-        _rate = 4;
+        _rate = 2;
       break;
       case 's3':
-        _rate = 6;
+        _rate = 3;
       break;
       case 's4':
-        _rate = 8;
+        _rate = 4;
       break;
       case 's5':
-        _rate = 10;
+        _rate = 5;
       break;
     }
     
@@ -105,15 +105,28 @@ const Rate: FC<RateProps> = ({heroId, interactable, onRateChange, change}) => {
       .catch(e => console.log(e.message));
   };
 
+  const handleClassName = (rateLength: number) => {
+    let s = 'fa';
+
+    s += (lRate > rateLength) ? ' fa-star' : ' fa-star-o';
+
+    if((lRate - rateLength) > 0 && (lRate - rateLength) < 1)
+      s += '-half-o';
+
+    s += (!interactable) ? ' no-interactable' : ' star-color';
+
+    return s;
+  };
+
   return (
     <div className="row spacing col">
       {(lRate > 0) ? <p>{interactable ? YOUR_RATE : USERS_RATE}: {lRate}</p> : <p>{interactable ? NO_YOUR_RATE : NO_USERS_RATE}</p>}
       <div className='col'>
-        <span id='s1' onClick={handleRate} data-testid="star" className={(lRate > 0) ? 'fa fa-star' : 'fa fa-star-o'} style={{color: 'yellowgreen'}}></span>
-        <span id='s2' onClick={handleRate} data-testid="star2" className={(lRate > 2) ? 'fa fa-star' : 'fa fa-star-o'} style={{color: 'yellowgreen'}}></span>
-        <span id='s3' onClick={handleRate} data-testid="star3" className={(lRate > 4) ? 'fa fa-star' : 'fa fa-star-o'} style={{color: 'yellowgreen'}}></span>
-        <span id='s4' onClick={handleRate} data-testid="star4" className={(lRate > 6) ? 'fa fa-star' : 'fa fa-star-o'} style={{color: 'yellowgreen'}}></span>
-        <span id='s5' onClick={handleRate} data-testid="star5" className={(lRate > 8) ? 'fa fa-star' : 'fa fa-star-o'} style={{color: 'yellowgreen'}}></span>
+        <span id='s1' onClick={handleRate} data-testid="star" className={handleClassName(0)}></span>
+        <span id='s2' onClick={handleRate} data-testid="star2" className={handleClassName(1)}></span>
+        <span id='s3' onClick={handleRate} data-testid="star3" className={handleClassName(2)}></span>
+        <span id='s4' onClick={handleRate} data-testid="star4" className={handleClassName(3)}></span>
+        <span id='s5' onClick={handleRate} data-testid="star5" className={handleClassName(4)}></span>
       </div>
     </div>
   )

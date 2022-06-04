@@ -102,6 +102,19 @@ p {
     align-self: center;
 }
 
+.no-interactable{
+    cursor: unset!important;
+    color: yellowgreen!important;
+}
+
+.star-color{
+    color: yellowgreen!important;
+}
+
+.star-color:hover {
+    color: darkblue!important;
+}
+
 .fa {
     font-size: 50px;
     cursor: pointer;

@@ -18,36 +18,4 @@ describe('<Rate />', () => {
     expect(star4.classList.contains('fa fa-star-o'));
     expect(star5.classList.contains('fa fa-star-o'));
   });
-
-  test('it should not fill any star', () => {
-    const rate = render(<Rate heroId={0} interactable={true} />);
-    
-    const star = rate.getByTestId('star');
-    const star2 = rate.getByTestId('star2');
-    const star3 = rate.getByTestId('star3');
-    const star4 = rate.getByTestId('star4');
-    const star5 = rate.getByTestId('star5');
-
-    expect(star.classList.contains('fa fa-star-o'));
-    expect(star2.classList.contains('fa fa-star-o'));
-    expect(star3.classList.contains('fa fa-star-o'));
-    expect(star4.classList.contains('fa fa-star-o'));
-    expect(star5.classList.contains('fa fa-star-o'));
-  });
-
-  test('it should fill all the stars', () => {
-    const rate = render(<Rate heroId={0} interactable={false} />);
-    
-    const star = rate.getByTestId('star');
-    const star2 = rate.getByTestId('star2');
-    const star3 = rate.getByTestId('star3');
-    const star4 = rate.getByTestId('star4');
-    const star5 = rate.getByTestId('star5');
-
-    expect(star.classList.contains('fa fa-star'));
-    expect(star2.classList.contains('fa fa-star'));
-    expect(star3.classList.contains('fa fa-star'));
-    expect(star4.classList.contains('fa fa-star'));
-    expect(star5.classList.contains('fa fa-star'));
-  });
 });
