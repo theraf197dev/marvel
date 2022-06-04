@@ -18,6 +18,6 @@ describe('<CreateComment />', () => {
       .then(res => {
         expect(res.data === true);
       })
-      .catch(e => console.log(e));
+      .catch(e => console.log(e.message));
   });
 });

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import CollapsibleComponents from '../components/CollapsibleComponents/CollapsibleComponents';
 import CommentContainer from '../components/CommentContainer/CommentContainer';
 import { API_URL } from '../constants';
@@ -14,6 +14,7 @@ const HeroDetail = () => {
   const [loading, setLoading] = useState(true);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [heroName, setHeroName] = useState('');
   const [description, setDescription] = useState('');
@@ -27,7 +28,9 @@ const HeroDetail = () => {
 
   useEffect(() => {
     const peticion = async(endpoint = "") => {
-      const url = API_URL.concat('/hero/getHeroDetail?characterId=') + location.state;
+      const state = location.state || location.pathname.split('/')[2];
+
+      const url = API_URL.concat('/hero/getHeroDetail?characterId=') + state;
   
       axios.get(url)
         .then(res => {
@@ -50,11 +53,14 @@ const HeroDetail = () => {
   
           setLoading(false);
         })
-        .catch(e => console.log(e));
+        .catch(e => {
+          console.log(e.message);
+          navigate('/heroes')
+        });
     };
 
     peticion();
-  }, [location.state]);
+  }, [location, navigate]);
   
   return(
     <>

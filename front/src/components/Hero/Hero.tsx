@@ -14,7 +14,7 @@ const Hero: FC<HeroProps> = ({id, heroName, thumbnail, extension}) => {
 
   return (
     <div className="custom-card col-md-4 center">
-      <NavLink aria-current="page" to={`/heroes/${heroName}`} state={id}>
+      <NavLink aria-current="page" to={`/heroes/${heroName.replaceAll(' ', '-')}`} state={id}>
         <img src={photo} className="card-img-top" alt={heroName} data-testid="photo"/>
       </NavLink>
       

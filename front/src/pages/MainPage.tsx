@@ -34,7 +34,7 @@ const MainPage = () => {
           
           setLoading(false);
         })
-        .catch(e => console.log(e));
+        .catch(e => console.log(e.message));
     };
     
     peticion();
